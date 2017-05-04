@@ -12,7 +12,8 @@ html, body {
 }
 
 img {
-	/*width: 100px;*/
+	width: 100%;
+	height: 100%;
 }
 
 p {
@@ -32,12 +33,12 @@ p {
 	display: -webkit-flex;
 	display: flex;
 	flex-flow: row;
-	/*justify-content: space-around;*/
+	justify-content: space-around;
 	/*justify-content: flex-end;*/
 	top: 25%;
 	left: 50%;
 	transform: translate(-50%, 0%);
-	width: 50%;
+	width: 40%;
 	height: 40%;
 	margin: 5px;
 	border: 5px solid #990000;
@@ -49,19 +50,25 @@ p {
 
 .img-container {
 	position: absolute;
+	/*display: -webkit-flex;
+	display: flex;
+	flex-flow: row;*/
 	top: 0%;
 	left: 50%;
 	transform: translate(-50%, 0%);
 	width: 70%;
+	height: 100%;
 	margin: 0px;
-	border: 0px;
+	border: 5px solid #FFFFFF;
+	/*padding: 0px;*/
+	background-color: white;
 }
 
-/*.image-container {
+.image {
 	position: absolute;
-	width: 5%;
-	height: 5%;
-}*/
+	height: 100%;
+	width: ;
+}
 
 .arrow-container {
 	position: absolute;
@@ -85,14 +92,18 @@ p {
 
 #l-arrow {
 	left: 0%;
-	justify-content: left;
+	/*justify-content: left;*/
 }
 
 #r-arrow {
 	right: 0%;
-	justify-content: right;
+	/*justify-content: right;*/
 }
 
-#image2 {
-	/*transform: translate(0%, 5%);*/
+#image1 {
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	/*width: 100%;
+	height: 100%;*/
 }

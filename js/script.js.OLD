@@ -1,0 +1,19 @@
+$(function() {
+	// var content = $("<p>coucou</p>");
+	// content.appendTo(".container h1");
+	// $(".container").find("p:first").hide(1500);
+	// var elmt = $("p:first");
+	// $(".container").append(elmt);
+	// $("span").hover(function() {
+	// 	$(this).hide();
+	// });
+	// $("p:last").click(function() {
+	// 	$(this).hide();
+	// });
+	// $("p:last span").bind("click", function() {
+	// 	console.log("Mais tu es c...?");
+	// });
+	// $("p:last span").bind("click", function() {
+	// 	console.log("Mais tu es c...?");
+	// });
+});

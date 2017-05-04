@@ -1,0 +1,109 @@
+/*
+        Elements properties definition
+*/
+
+html, body {
+	background-color: #0066CC;
+	width: 100%;
+    height: 100%;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+p {
+	position: absolute;
+	text-align: center;
+	/*top: 50%;*/
+	left: 50%;
+	transform: translate(-50%, -20%);
+}
+
+/*
+        Classes properties definition
+*/
+
+.carousel-container {
+	position: absolute;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+	/*justify-content: flex-end;*/
+	top: 25%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	width: 40%;
+	height: 40%;
+	margin: 5px;
+	border: 5px solid #990000;
+	border-radius: 5px;
+	/*border-color: #990000;*/
+	border-width: 5px;
+	background-color: orange;
+}
+
+.img-container {
+	position: absolute;
+	/*display: -webkit-flex;
+	display: flex;
+	flex-flow: row;*/
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	width: 70%;
+	height: 100%;
+	margin: 0px;
+	border: 5px solid #FFFFFF;
+	/*padding: 0px;*/
+	background-color: white;
+}
+
+.image {
+	position: absolute;
+	height: 100%;
+	width: ;
+}
+
+.arrow-container {
+	position: absolute;
+	top: 50%;
+	transform: translate(0%, -50%);
+	height: 85%;
+	width: 15%;
+	font-size: 100px;
+	font-weight: 800;
+	font: sans-serif;
+	border: 5px solid #000000;
+	/*padding: 0px;*/
+	margin: 0px;
+	background-color: grey;
+}
+
+
+/*
+        IDs properties definition
+*/
+
+#l-arrow {
+	left: 0%;
+	/*justify-content: left;*/
+}
+
+#r-arrow {
+	right: 0%;
+	/*justify-content: right;*/
+}
+
+#image1 {
+	top: 0%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	/*width: 100%;
+	height: 100%;*/
+}

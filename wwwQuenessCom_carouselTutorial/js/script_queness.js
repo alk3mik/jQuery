@@ -76,4 +76,3 @@ $(document).ready(function() {
 function rotate() {
 	$('#next').click();
 }
-});

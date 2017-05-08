@@ -16,8 +16,10 @@ $(document).ready(function() {
 
 	function rotateImages() {
 
-		// var placehold = '';
+		// var test = $("#image4");
+		// console.log(test, typeof test);
 
+// Displace the image4 by changing its CSS properties (specifically "top" and "left").
 		$("#image4").css({
 
 			top: '0px',
@@ -26,9 +28,12 @@ $(document).ready(function() {
 		
 		}, 2000);
 
-		// placehold = $("img").attr("id");
-
-		// console.log(placehold);
+// Set the value (in this case 'temporary') of an attribute (in this case 'id')
+// of the HTML element(s) that matches(match) the selector (in this case "#image4").
+// Since we are going to act on the value of the 'id' of the image preceding
+// image4 (that is image3), we need to prevent this change to happen to figure4 too,
+// that is why we change (set) its 'id' value to the value 'temporary' (ehm... was this clear?)
+		$("#image4").attr('id', 'temporary');
 
 		$("#image1").css({
 
@@ -37,6 +42,8 @@ $(document).ready(function() {
 			left: '0px'
 		
 		}, 2000);
+
+		$("#image1").attr('id', 'image4');
 
 		$("#image2").css({
 
@@ -58,8 +65,10 @@ $(document).ready(function() {
 
 		$("#image3").attr('id', 'image2');
 
-		$("#image4").attr('id', 'image3');
+		$("#temporary").attr('id', 'image3');
 
+// The function rotateImages calls itself as a *callback* of the window method setTimeout().
+// Here we exploit the recursivity: the call will be repeated an infinite number of times.
 		// window.setTimeout(rotateImages, 2000);
 
 	}

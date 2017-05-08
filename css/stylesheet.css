@@ -48,11 +48,11 @@ p {
 	width: 100%;
 	height: 300px;
 	margin: 5px auto;
-	border: 5px solid #990000;
-	border-radius: 20px;
+	/*border: 5px solid #990000;*/
+	/*border-radius: 20px;*/
 	/*border-color: #990000;*/
-	border-width: 5px;
-	background-color: orange;
+	/*border-width: 5px;*/
+	/*background-color: orange;*/
 }
 
 .img-container {
@@ -75,14 +75,14 @@ p {
 	width: 1200px;
 	height: 300px;
 	/*margin: 5px auto;*/
-	border: 1px solid #990000;
-	background-color: white;
+	/*border: 1px solid #990000;*/
+	/*background-color: white;*/
 }
 
 .image {
 	/*position: absolute;*/
-	/*padding: 0px;
-	margin: 0px auto;*/
+	/*padding: 0px;*/
+	/*margin: 0px auto;*/
 	/*border: 5px solid #000000;*/
 	/*border: 5px solid grey;*/
 	/*left: 0%;*/
@@ -103,10 +103,13 @@ p {
 	font-size: 150px;
 	font-weight: 800;
 	font: sans-serif;
-	border: 5px solid #000000;
-	margin: 0px;
+	border: 1px solid #000000;
+	/*margin: 0px;*/
 	background-color: grey;
+	box-shadow: 5px 5px 0px #000000;
 }
+
+
 
 .hider {
 	position: absolute;
@@ -115,7 +118,7 @@ p {
 	width: 600px;
 	height: 300px;
 	/*top: -3.3%;*/
-	opacity: 0.5;
+	/*opacity*/: 0.5;
 }
 
 
@@ -134,12 +137,14 @@ p {
 #l-arrow {
 	left: 30%;
 	border-radius: 50px, 0px, 0px, 50px;
+	margin-right: 5px;
 	/*justify-content: left;*/
 }
 
 #r-arrow {
 	right: 30%;
 	border-radius: 0px, 50px, 50px, 0px;
+	margin-left: 5px;
 	/*justify-content: right;*/
 }
 

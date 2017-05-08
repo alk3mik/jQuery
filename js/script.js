@@ -10,15 +10,61 @@ $(document).ready(function() {
 
 	var positionLast = imgLast.position();
 
-	// console.log(position);
+	// var images = $("img");
 
-	$("img:first").css({
+	// define a self-repeating function...
 
-		top: '0px',
-	
-		left: '900px'
-	
-	}, 5000);
+	function rotateImages() {
+
+		// var placehold = '';
+
+		$("#image4").css({
+
+			top: '0px',
+		
+			left: '900px'
+		
+		}, 2000);
+
+		// placehold = $("img").attr("id");
+
+		// console.log(placehold);
+
+		$("#image1").css({
+
+			top: '0px',
+		
+			left: '0px'
+		
+		}, 2000);
+
+		$("#image2").css({
+
+			top: '0px',
+		
+			left: '300px'
+		
+		}, 2000);
+
+		$("#image2").attr('id', 'image1');
+
+		$("#image3").css({
+
+			top: '0px',
+		
+			left: '600px'
+		
+		}, 2000);
+
+		$("#image3").attr('id', 'image2');
+
+		$("#image4").attr('id', 'image3');
+
+		// window.setTimeout(rotateImages, 2000);
+
+	}
+
+	rotateImages();
 
 	// $("#image1").css({
 

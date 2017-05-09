@@ -8,7 +8,7 @@ html, body {
     height: 100%;
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -20,6 +20,7 @@ h1 {
 	text-align: center;
 	position: absolute;
 	transform: translate(-50%, 0%);
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 img {
@@ -72,6 +73,7 @@ img {
 	border-radius: 10px;
 	background-color: #888888;
 	box-shadow: 5px 5px 0px #000000;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /*
@@ -90,6 +92,7 @@ img {
 
 #l-arrow {
 	left: 25%;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #l-arrow:hover {
@@ -107,6 +110,7 @@ img {
 
 #r-arrow {
 	right: 25%;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 #r-arrow:hover {

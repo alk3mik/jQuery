@@ -2,51 +2,32 @@ jQuery(document).ready(function() {
 
 // The scrollTime is the time (in ms) employed by an image to
 // entirely displace, either L->R or R->L .
-	var scrollTime = 500;
+	var scrollTime = 1500;
 
 // The timeInterval is the time (in ms) that passes between the display
 // of each image.
 	var timeInterval = 2500;
 
-// This *global* (it needs to be like that) variable will store the return
-// value of the (window) method setInterval.
-// The return value is just an ID number that can be used as input parameter
-// in the (window) method clearInterval
-	var pauseSetIntervalID;
+	var pauseSetTimeOutID;
 
 // Call the rotation L to R if the 'right' button is clicked.
 
 	$("#r-arrow").click(function() {
-
-		clearInterval(pauseSetIntervalID);
-
+		clearTimeout(pauseSetTimeOutID);
 		rotateImagesLtoR();
-		
-		pauseSetIntervalID = setInterval(rotateImagesRtoL, timeInterval);
-	
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
 	});
 
 // Call the rotation R to L if the 'left' button is clicked.
 
 	$("#l-arrow").click(function() {
-
-		clearInterval(pauseSetIntervalID);
-
-		rotateImagesRtoL();
-
-		pauseSetIntervalID = setInterval(rotateImagesRtoL, timeInterval);
-	
+		clearTimeout(pauseSetTimeOutID);
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
 	});
 
-// setInterval method returns a numeric ID, which we store in pauseSetIntervalID.
-	pauseSetIntervalID = setInterval(rotateImagesRtoL, timeInterval);
-
-// Define the function which rotate the images from right (R) to left (L)
+// Define the self-repeating function which rotate the images from right (R) to left (L)
 
 	function rotateImagesRtoL() {
-
-// The initial order of the images is the following: image4, image1, image2, image3 .
-// The initially shown image is image1 .
 
 // Displace the IMAGE 4 by changing its CSS properties (specifically "left").
 		$("#image4").css({
@@ -79,9 +60,7 @@ jQuery(document).ready(function() {
 		
 			left: '-=300'
 		
-		}, scrollTime, function() {
-			// Animation complete.
-		});
+		}, scrollTime);
 
 		$("#image2").attr('id', 'image1');
 
@@ -100,14 +79,23 @@ jQuery(document).ready(function() {
 
 		$("#temporary").attr('id', 'image3');
 
+// The function rotateImagesRtoL calls itself as a *callback* of the window method setTimeout().
+// Here we exploit the recursivity: the call will be repeated an infinite number of times.
+// Moreover, making use setTimeout(), we are sure that each call to the callback function
+// (i.e. rotateImagesRtoL()) will be executed only when the previous call has terminated.
+
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
+
 	}
+
+	rotateImagesRtoL();
 
 
 // Define the function which rotate the images from left (L) to right (R)
 
 	function rotateImagesLtoR() {
 
-		// clearInterval(pauseSetIntervalID);
+		clearTimeout(pauseSetTimeOutID);
 
 // Displace the IMAGE 4
 		$("#image4").animate({
@@ -152,6 +140,8 @@ jQuery(document).ready(function() {
 // And finally we change the id of figure4 to image1
 
 		$("#temporary").attr('id', 'image1');
+
+		// window.setTimeout(rotateImagesRtoL, 2000);
 
 	}
 

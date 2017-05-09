@@ -1,33 +1,34 @@
 $(document).ready(function() {
 
-	var imgWidth = $("img").attr("width");
+	var scrollTime = 1500;
+	var timeInterval = 2500;
+	var pauseSetTimeOutID;
 
-	var imgFirst = $("img:first");
+// Call the rotation L to R if the 'right' button is clicked.
 
-	var positionFirst = imgFirst.position();
+	$("#r-arrow").click(function() {
+		clearTimeout(pauseSetTimeOutID);
+		rotateImagesLtoR();
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
+	});
 
-	var imgLast = $("img:last");
+// Call the rotation R to L if the 'left' button is clicked.
 
-	var positionLast = imgLast.position();
+	$("#l-arrow").click(function() {
+		clearTimeout(pauseSetTimeOutID);
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
+	});
 
-	// var images = $("img");
+// Define the self-repeating function which rotate the images from right (R) to left (L)
 
-	// define a self-repeating function...
+	function rotateImagesRtoL() {
 
-	function rotateImages() {
-
-		// var test = $("#image4");
-		// console.log(test, typeof test);
-
-// Displace the image4 by changing its CSS properties (specifically "top" and "left").
+// Displace the IMAGE 4 by changing its CSS properties (specifically "left").
 		$("#image4").css({
-
-			top: '0px',
 		
-			left: '900px'
+			left: '900px',
 		
-		}, 2000);
-
+		});
 // Set the value (in this case 'temporary') of an attribute (in this case 'id')
 // of the HTML element(s) that matches(match) the selector (in this case "#image4").
 // Since we are going to act on the value of the 'id' of the image preceding
@@ -35,60 +36,107 @@ $(document).ready(function() {
 // that is why we change (set) its 'id' value to the value 'temporary' (ehm... was this clear?)
 		$("#image4").attr('id', 'temporary');
 
-		$("#image1").css({
 
-			top: '0px',
+// Displace the IMAGE 1 by changing its CSS properties (specifically "left").
+		$("#image1").animate({
 		
-			left: '0px'
+			left: '-=300'
 		
-		}, 2000);
+		}, scrollTime, function() {
+			// Animation complete.
+		});
 
 		$("#image1").attr('id', 'image4');
 
-		$("#image2").css({
 
-			top: '0px',
+// Displace the IMAGE 2 by changing its CSS properties (specifically "left").
+		$("#image2").animate({
 		
-			left: '300px'
+			left: '-=300'
 		
-		}, 2000);
+		}, scrollTime);
 
 		$("#image2").attr('id', 'image1');
 
-		$("#image3").css({
 
-			top: '0px',
+// Displace the IMAGE 3 by changing its CSS properties (specifically "left").
+		$("#image3").css({
 		
 			left: '600px'
 		
-		}, 2000);
+		});
 
 		$("#image3").attr('id', 'image2');
 
+// And finally we can give the id value 'image3' to the image n.4 (whose id value
+// was set to 'temporary').
+
 		$("#temporary").attr('id', 'image3');
 
-// The function rotateImages calls itself as a *callback* of the window method setTimeout().
+// The function rotateImagesRtoL calls itself as a *callback* of the window method setTimeout().
 // Here we exploit the recursivity: the call will be repeated an infinite number of times.
-		// window.setTimeout(rotateImages, 2000);
+// Moreover, making use setTimeout(), we are sure that each call to the callback function
+// (i.e. rotateImagesRtoL()) will be executed only when the previous call has terminated.
+
+		pauseSetTimeOutID = window.setTimeout(rotateImagesRtoL, timeInterval);
 
 	}
 
-	rotateImages();
+	rotateImagesRtoL();
 
-	// $("#image1").css({
 
-	// 	'transform': 'translate(100%, 0%)'
+// Define the function which rotate the images from left (L) to right (R)
 
-	// }, 5000);
+	function rotateImagesLtoR() {
 
-	// $('.img#image3').toggle(500, "swing");
+		clearTimeout(pauseSetTimeOutID);
 
-	// $('img:first').toggle(500, "swing");
+// Displace the IMAGE 4
+		$("#image4").animate({
+		
+			left: '+=300',
+		
+		}, scrollTime, function() {
+			// Animation complete.
+		});
 
-	// $("#").animate({width:'toggle'},350);
-	// $("#l-arrow").click(function() {
+		$("#image4").attr('id', 'temporary');
 
-	// 	$('#image1').animate({width:'toggle'}, 500)});
+// Displace the IMAGE 3
+		$("#image3").css({
+		
+			left: '0px'
+		
+		});
 
+		$("#image3").attr('id', 'image4');
+
+// Displace the IMAGE 2
+		$("#image2").css({
+		
+			left: '+=300'
+		
+		});
+
+		$("#image2").attr('id', 'image3');
+
+// Displace the IMAGE 1
+		$("#image1").animate({
+		
+			left: '+=300'
+		
+		}, scrollTime, function() {
+			// Animation complete.
+		});
+
+		$("#image1").attr('id', 'image2');
+
+// And finally we change the id of figure4 to image1
+
+		$("#temporary").attr('id', 'image1');
+
+		// window.setTimeout(rotateImagesRtoL, 2000);
+
+	}
 
 });
